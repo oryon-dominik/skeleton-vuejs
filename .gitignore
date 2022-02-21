@@ -1,0 +1,35 @@
+## GIT is ignoring... 
+
+# all logs
+*.log*
+
+# local-config
+.env
+.env.local
+.env.production
+
+# macOS
+.DS_Store
+
+# vscode
+.vscode
+
+# ===================
+## Python
+# ===================
+
+# precompiled
+__pycache__/
+*.py[cod]
+.pytest_cache
+
+# jupyter / shell_plus
+.ipynb_checkpoints/
+.ipython/
+
+# ===================
+## Vue.js
+# ===================
+
+node_modules
+dist

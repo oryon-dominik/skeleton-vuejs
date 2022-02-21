@@ -1,0 +1,31 @@
+{
+    "folders": [
+        {
+            "name": "skeleton-vuejs",
+            "path": "."
+        },
+    ],
+    "settings": {
+        // * files ////////////////////////////////////////////////////////////
+        "files.eol": "\n",
+        "files.exclude": {
+            "**/__pycache__": true,
+            "**/.pytest_cache": true,
+        },
+        // * python ///////////////////////////////////////////////////////////
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "119"],
+        "python.analysis.extraPaths": ["api"],
+
+        // typescript-settings
+        "eslint.workingDirectories": ["frontend"],
+
+        // * launcher-config //////////////////////////////////////////////////
+        "launch": {
+                "version": "0.2.0",
+                "configurations": [
+
+                ]
+            },
+    }
+}
