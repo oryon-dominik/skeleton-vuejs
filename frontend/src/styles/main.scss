@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+//tailwind
+/*! @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// custom (brand) variables and variable overwrites.
+@import "./variables.scss";
+
+
+/* 
+  ~~ custom design ~~
+*/
+
+body {
+
+}

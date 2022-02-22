@@ -1,0 +1,54 @@
+{
+  // https://www.typescriptlang.org/docs/handbook/compiler-options.html?
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "useDefineForClassFields": true,
+    // "noImplicitAny": true,  // if true it's included in 'strict' already
+    "noImplicitThis": false,
+    /* Experimental Options:
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    */
+    "jsx": "preserve",
+    "sourceMap": true, // mandatory to apply the debugger
+    "removeComments": true,  // to reduce file-size
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      // https://www.typescriptlang.org/tsconfig/#lib
+      "esnext",
+      "DOM",
+      "DOM.Iterable",
+    ],
+    "baseUrl": ".",
+    "paths": {
+      // "@/*": [
+      //   "src/*"
+      // ],
+      // "components/*": [
+      //   "src/components/*"
+      // "pages/*": ["src/pages/*"],
+      // ]
+    },
+    // "typeRoots": ["@types", "node_modules/@types"],
+    // "types": [
+    //   "vite/client",
+    //   "node",
+    // ],
+  },
+  "plugins": [
+    "typescript-plugin-vue",
+  ],
+  "include": [
+    "@types/**/*",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
