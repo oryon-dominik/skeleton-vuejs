@@ -33,7 +33,7 @@ def echo(
         )
     )
 
-def run_frontend_command(command, cwd='/frontend', env=None, yarn=True, shell=True):
+def run_frontend_command(command, cwd='./frontend', env=None, yarn=True, shell=True):
     if yarn:
         command = f"yarn {command}"
     try:
@@ -76,31 +76,26 @@ def clean():
 
 
 @cli.command()
-def up(backend: bool = False, frontend: bool = False):
-    "starts yarn devserver"
-    if backend:
-        run()
+def up(back: bool = False, front: bool = False):
+    "start servers"
+    if back:
+        backend()
     elif frontend:
         run_frontend_command("dev")
     else:
-        echo(f"Please specify backend or frontend. Falling back tp frontend", fg_color=typer.colors.RED)
+        echo(f"Please specify backend or frontend. Falling back to frontend", fg_color=typer.colors.RED)
         run_frontend_command("dev")
 
 # ---------- BACKEND -------------------------------------------------
 @cli.command()
-def backend():
-    "starts backend"
-    run()
-
-@cli.command()
-def run(
+def backend(
     port: int = 8000,
     host: str = "127.0.0.1",
     log_level: str = "info",
     reload: bool = True,
 ):  # pragma: no cover
     """
-    Run the API server.
+    Run the fastapi backend-API server.
     """
     uvicorn.run(
         "api.application:app",
@@ -110,6 +105,10 @@ def run(
         reload=reload,
     )
 
+@cli.command()
+def api():
+    "starts the fastapi backend-API server"
+    backend()
 
 #----------FRONTEND------------------------------------------------------------
 @cli.command()
