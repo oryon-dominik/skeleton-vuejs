@@ -5,6 +5,7 @@ from datetime import timedelta
 import humanize
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 
 # -- LOGGING ------------------------------------------------------------------
 from .config import logs
@@ -13,6 +14,17 @@ log = logging.getLogger('application')
 
 # -- APPLICATION --------------------------------------------------------------
 app = FastAPI()
+origins = [
+    "http://localhost:3000",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Time taken
 @app.middleware("http")
@@ -30,6 +42,12 @@ async def request_time_taken(request: Request, call_next):
 async def public_root():
     return {
         "message": "Welcome to a FastAPI-Application. Composed by oryon-dominik with 💖",
+    }
+
+@app.get("/api/todos/lists")
+async def public_root():
+    return {
+        "todos": "foo",
     }
 
 # -----------------------------------------------------------------------------
