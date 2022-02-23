@@ -127,5 +127,5 @@ def get_json_handler() -> Generator:
 def get_current_user() -> Generator:
     from .models import User
     handler = next(get_json_handler())
-    user_dict = handler.read('users', 1)
+    user_dict = handler.read('users', 1)  # ! this is mocked for testing and always returns the default user!
     yield User(**user_dict)

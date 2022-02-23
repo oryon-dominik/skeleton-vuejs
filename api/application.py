@@ -11,7 +11,7 @@ from .models import Todo, User, TodoSnippet, TodoUpdate
 from . import crud
 
 # -- LOGGING ------------------------------------------------------------------
-from .config import logs
+from .config import logs  # noqa
 log = logging.getLogger('application')
 
 
@@ -52,7 +52,7 @@ async def public_root():
 async def create_todo(
     todo: TodoSnippet,
     handler = Depends(crud.get_json_handler),
-    user: User = Depends(crud.get_current_user),
+    user: User = Depends(crud.get_current_user),  # ! this is mocked for testing and always returns the default user!
 ):
     return handler.create(modelname="todos", item=Todo(**todo.dict() | {"owner_url": user.url}).dict())
 
