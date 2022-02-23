@@ -1,0 +1,52 @@
+[
+    {
+        "created_at": "2022-02-23T12:48:40.217683",
+        "description": "",
+        "is_done": false,
+        "name": "Buy milk",
+        "owner_url": "localhost:8000/api/users/read/1",
+        "tags": "home, milk",
+        "todolist": null,
+        "uid": "32b67e51-77e8-43b0-806e-5aebac5c8b11"
+    },
+    {
+        "created_at": "2022-02-23T12:33:44.746932",
+        "description": "",
+        "is_done": false,
+        "name": "Buy milk",
+        "owner_url": "localhost:8000/api/users/read/1",
+        "tags": "",
+        "todolist": null,
+        "uid": "b1c73c52-cc9f-4f17-8cf8-e46ed1528842"
+    },
+    {
+        "created_at": "2022-02-23T13:19:00.598341",
+        "description": "La, le lu",
+        "is_done": false,
+        "name": "Buppa",
+        "owner_url": "localhost:8000/api/users/read/1",
+        "tags": "home, milk",
+        "todolist": null,
+        "uid": "b77782e8-08cd-4fa8-a6f3-454e58f90a7a"
+    },
+    {
+        "created_at": "2022-02-23T12:46:57.286621",
+        "description": "",
+        "is_done": false,
+        "name": "Buy milk",
+        "owner_url": "localhost:8000/api/users/read/1",
+        "tags": "",
+        "todolist": null,
+        "uid": "c4c03e30-6e51-4aa9-b2d8-fcefe6482d45"
+    },
+    {
+        "created_at": "2022-02-23T12:46:19.829019",
+        "description": "",
+        "is_done": false,
+        "name": "Another milk",
+        "owner_url": "localhost:8000/api/users/read/1",
+        "tags": [],
+        "todolist": null,
+        "uid": "e8f5e4b8-6d37-4902-ad3b-d62d0142e936"
+    }
+]

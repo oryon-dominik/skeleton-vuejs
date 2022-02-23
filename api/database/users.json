@@ -1,0 +1,3 @@
+[
+    {"uid": 1, "url": "localhost:8000/api/users/read/1", "name": "default"}
+]
