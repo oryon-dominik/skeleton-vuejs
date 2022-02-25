@@ -51,6 +51,11 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue",
+    ".eslintrc.cjs",
+    "index.html",
+    "postcss.config.js",
+    "tailwind.config.js",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules"
