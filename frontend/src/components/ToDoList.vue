@@ -1,5 +1,4 @@
 <template>
-
 <div class="flex items-center max-w-sm p-6 mx-auto space-x-4 bg-white shadow-lg rounded-xl">
   <div>
     <div class="text-xl font-medium text-black">ChitChat</div>
@@ -18,8 +17,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { useTodos, Todo } from '../stores/todos';
-
+import { useTodos } from '../stores/todos';
+import type { Todo } from '../stores/todos';
 
 export default defineComponent({
   name: "ToDoList",
