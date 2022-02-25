@@ -3,10 +3,11 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
+  parser: 'vue-eslint-parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.eslint.json']
+    project: ['./tsconfig.eslint.json'],
+    parser: '@typescript-eslint/parser'
   },
   plugins: ['@typescript-eslint'],
   extends: [
@@ -23,6 +24,11 @@ module.exports = {
   ],
   env: {
     'vue/setup-compiler-macros': true
+  },
+  rules: {
+    quotes: ['error', 'single'],
+    'vue/require-v-for-key': 'off'
+    // add your custom rules here
   },
   overrides: [
     {
