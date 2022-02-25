@@ -15,7 +15,6 @@
       </Switch>
     </div>
   </SwitchGroup>
-
 </template>
 
 <script lang="ts">

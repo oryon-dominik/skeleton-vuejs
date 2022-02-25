@@ -1,4 +1,6 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+
   // https://www.typescriptlang.org/docs/handbook/compiler-options.html?
   "compilerOptions": {
     "target": "esnext",
@@ -25,9 +27,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      // "@/*": [
-      //   "src/*"
-      // ],
+      "@/*": [
+        "./src/*"
+      ],
       // "components/*": [
       //   "src/components/*"
       // "pages/*": ["src/pages/*"],
@@ -43,12 +45,20 @@
     "typescript-plugin-vue",
   ],
   "include": [
+    "env.d.ts",
     "@types/**/*",
+    // "src/**/*",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue",
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.vite-config.json"
+    }
   ]
+
 }
