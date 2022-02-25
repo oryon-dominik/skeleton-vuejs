@@ -36,19 +36,21 @@ export const useTodos = defineStore({
     loaded: false,
   }),
   getters: {
-    getUnfinishedTodos(state: TodoState): Todo[] {
-      return state.todos.filter((todo) => !todo.is_done)
-    },
+    // getUnfinishedTodos(state: TodoState): Todo[] {
+    //   return state.todos.filter((todo) => !todo.is_done)
+    // },
   },
   actions: {
-    async getAllTodoListsFromAPI() {
-      const route = Endpoint.todolists;
+    async getAllTodoItemsFromAPI() {
+      const route = Endpoint.todoitems;
       const { restResponse, error } = await getMany(route);
       if (error) {
           console.error(error);
           return;
       }
-      this.todos = restResponse.results;
+      let todos = restResponse as unknown as Todo[];
+      this.todos = todos;
+
       this.loaded = true;
     },
   },

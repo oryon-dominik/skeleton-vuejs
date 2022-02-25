@@ -39,7 +39,6 @@ async function getMany(route: Endpoint, pk: string = "", parameters: string = ""
   };
 
   const url = route.concat(pk, parameters)
-
   try {
     const response = await httpClient.get(url);
     if (response.status == 200) {
@@ -50,9 +49,7 @@ async function getMany(route: Endpoint, pk: string = "", parameters: string = ""
   } finally {
     application.finishLoading()
   }
-
   return queryResult;
 }
 
 export { getMany };
-

@@ -3,11 +3,11 @@
  <div class="w-full h-full bg-cyberred">
   <img class="object-contain w-full h-48" alt="Logo" src="./assets/cyberise_logo_centered_small_resized_for_web.png" />
  </div>
-
+  
   <Navigation />
   <router-view />
 
-    <!-- Also included:  -->
+  <!-- Also included:  -->
     <!-- <HeroIcons /> -->
     <!-- <HeroPatterns /> -->
     <!-- <Typography /> -->

@@ -3,7 +3,7 @@
         "created_at": "2022-02-23T12:48:40.217683",
         "description": "",
         "is_done": false,
-        "name": "Buy milk",
+        "name": "Work on something meaningful",
         "owner_url": "localhost:8000/api/users/read/1",
         "tags": "home, milk",
         "todolist": null,
