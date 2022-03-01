@@ -1,3 +1,3 @@
 [
-    {"uid": 1, "url": "localhost:8000/api/users/read/1", "name": "default"}
+    {"uid": 1, "url": "localhost:8000/api/users/read/1", "name": "default", "password": "$6$rounds=656000$ULlGqDGAVQWGipBS$ty5z4DP4UajsVGFYbsUh1UTMkbaaGPi1McYiJU1oRen8vUB42Whl3AeNIXbGGv/OkLFK4a969UCzupnBkQ/lm1"}
 ]

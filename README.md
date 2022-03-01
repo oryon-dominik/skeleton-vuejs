@@ -4,7 +4,7 @@ providing a basic vuejs application to start your projects with a simple skeleto
 
 ## Vue-Fronted
 
-The Frontend is using vue.js Version 3 with ~~vite~~ webpack in TypeScript.  
+The Frontend is using vue.js Version 3 with vite in TypeScript.  
 
 Install the vue devtools (https://github.com/vuejs/vue-devtools#vue-devtools) for your browser  
 
