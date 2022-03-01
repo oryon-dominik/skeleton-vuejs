@@ -15,6 +15,7 @@ export type Credentials = {
 export type UserState = {
   isAuthenticated: boolean,
   accessToken: string,
+  refreshToken: string,
   user: User,
 }
 

@@ -1,21 +1,19 @@
-import { Endpoint } from "./endpoints";
-import { httpClient } from "./httpClient";
+import type { Endpoint } from './endpoints'
+import { httpClient } from './httpClient'
 
-import { useApplication } from "../stores/application";
-
+import { useApplication } from '../stores/application'
 
 export type BackendAPIResponseMany = {
-  count: number,
-  next: string,
-  previous: string,
-  results: any[],
+  count: number
+  next: string
+  previous: string
+  results: unknown[]
 }
 
 export type GetManyAPIReturned = {
-  restResponse: BackendAPIResponseMany,
-  error: null | any,
+  restResponse: BackendAPIResponseMany
+  error: null | unknown
 }
-
 
 /**
  * Returns the api response -
@@ -25,31 +23,31 @@ export type GetManyAPIReturned = {
  * @param param query params for filtering the results
  * @returns queryResult the REST response with the list of objects and the error
  */
-async function getMany(route: Endpoint, pk: string = "", parameters: string = ""): Promise<GetManyAPIReturned> {
+async function getMany(route: Endpoint, pk = '', parameters = ''): Promise<GetManyAPIReturned> {
   const application = useApplication()
   application.startLoading()
   const queryResult: GetManyAPIReturned = {
     restResponse: {
       count: 0,
-      next: "",
-      previous: "",
-      results: [],
+      next: '',
+      previous: '',
+      results: []
     },
     error: null
-  };
+  }
 
   const url = route.concat(pk, parameters)
   try {
-    const response = await httpClient.get(url);
+    const response = await httpClient.get(url)
     if (response.status == 200) {
-      queryResult.restResponse = await response.data;
+      queryResult.restResponse = await response.data
     }
   } catch (error) {
-    queryResult.error = error;
+    queryResult.error = error
   } finally {
     application.finishLoading()
   }
-  return queryResult;
+  return queryResult
 }
 
-export { getMany };
+export { getMany }
