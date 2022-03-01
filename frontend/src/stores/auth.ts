@@ -133,6 +133,9 @@ async function getNewAccessTokenFromRefreshToken(): Promise<string> {
 
 const httpClientWithAuth = { ...httpClient };
 
+console.log("httpClientWithAuth", typeof(httpClientWithAuth));
+console.log("httpClient", typeof(httpClient));
+
 // Intercept invalid accessToken
 httpClientWithAuth.interceptors.response.use(
   async function (response) {

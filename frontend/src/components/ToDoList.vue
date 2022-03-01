@@ -2,7 +2,7 @@
   <div class="flex items-center max-w-sm p-6 mx-auto space-x-4 bg-white shadow-lg rounded-xl">
     <div>
       <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-green-500">You have a new messsage :)!</p>
+      <p class="text-red-500">You have a new messsage :)!</p>
       <button @click="getTodos()">callAPI</button>
       <ul v-for="todo in todos">
         <li>
@@ -26,7 +26,8 @@ export default defineComponent({
     async function getTodos() {
       const todoStore = useTodos()
       await todoStore.getAllTodoItemsFromAPI()
-      this.todos = todoStore.todos
+      // this.todos = todoStore.todos
+      todos.value = todoStore.todos // WTF, what is correct here?!
     }
     return {
       getTodos,

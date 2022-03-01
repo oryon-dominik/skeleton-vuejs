@@ -48,7 +48,6 @@ export const useTodos = defineStore({
       }
       const todos = restResponse as unknown as Todo[]
       this.todos = todos
-
       this.loaded = true
     }
   }

@@ -109,7 +109,7 @@ async def read_user(
 
 
 
-@app.post("/token", response_model=Token)
+@app.post("/api/token", response_model=Token)
 async def login_for_access_token(form_data: security.OAuth2PasswordRequestForm = Depends()):
     """
     OAuth2 compatible token login, get an access token for future requests.
