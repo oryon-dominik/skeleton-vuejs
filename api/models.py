@@ -10,6 +10,7 @@ from pydantic import BaseModel, validator, Field
 def generate_uuid() -> str:
     return str(uuid.uuid4())
 
+
 def dissassemble_comma_seperated_lists_of_strings(value: str) -> List[str]:
     """Validate that the value is a comma seperated list of strings"""
     if not isinstance(value, str):
@@ -23,9 +24,46 @@ def dissassemble_comma_seperated_lists_of_strings(value: str) -> List[str]:
     return [x.strip() for x in value.split(',') if x]
 
 
+class JWTAccessToken(str):
+    """
+    String representation of the header, claims, and signature.
+    Signed with ALGORITHMS.HS256.
+    """
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.validate
+
+    @classmethod
+    def validate(cls, access_token: str):
+        """
+        Hash the plaintext password.
+        """
+        if not isinstance(access_token, str):
+            raise TypeError("Can only proecess access_token strings")
+        # To keep type-annotations exact, return a JWTAccessToken instance
+        return cls(access_token)
+
+
+class Token(BaseModel):
+    """
+    Token Model representing the token in authentication-process
+    """
+    access_token: JWTAccessToken
+    token_type: str
+
+    @validator("token_type")
+    @classmethod
+    def validate_token_type(cls, value):
+        """Validate if the token-type is bearer."""
+        if not value == "bearer":
+            raise ValueError(f"Invalid token-type: {value}")
+        return value
+
+
 class User(BaseModel):
     url: str
-    uid: int
+    name: str
+    uid: str = Field(default_factory=generate_uuid, primary_key=True, index=True)
 
 
 class Tag(BaseModel):

@@ -1,3 +1,4 @@
 [
-    {"uid": 1, "url": "localhost:8000/api/users/read/1", "name": "default", "password": "$6$rounds=656000$ULlGqDGAVQWGipBS$ty5z4DP4UajsVGFYbsUh1UTMkbaaGPi1McYiJU1oRen8vUB42Whl3AeNIXbGGv/OkLFK4a969UCzupnBkQ/lm1"}
+    {"uid": "0aeabf01-7fc0-427a-b534-e52707d137f0", "url": "localhost:8000/api/users/read/0aeabf01-7fc0-427a-b534-e52707d137f0", "name": "default", "password": "$6$rounds=656000$ULlGqDGAVQWGipBS$ty5z4DP4UajsVGFYbsUh1UTMkbaaGPi1McYiJU1oRen8vUB42Whl3AeNIXbGGv/OkLFK4a969UCzupnBkQ/lm1"},
+    {"uid": "07ebeecb-7d03-4295-a6da-f3fac2a1dd86", "url": "localhost:8000/api/users/read/07ebeecb-7d03-4295-a6da-f3fac2a1dd86", "name": "two", "password": "$6$rounds=656000$ULlGqDGAVQWGipBS$ty5z4DP4UajsVGFYbsUh1UTMkbaaGPi1McYiJU1oRen8vUB42Whl3AeNIXbGGv/OkLFK4a969UCzupnBkQ/lm1"}
 ]

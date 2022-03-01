@@ -4,10 +4,11 @@ from datetime import timedelta
 
 import humanize
 
-from fastapi import FastAPI, Request, status, Depends, Response
+from fastapi import FastAPI, Request, status, Depends, Response, HTTPException, security
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import Todo, User, TodoSnippet, TodoUpdate
+from .models import Todo, User, TodoSnippet, TodoUpdate, Token, JWTAccessToken, dissassemble_comma_seperated_lists_of_strings
+from .auth import authenticate_user, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 from . import crud
 
 # -- LOGGING ------------------------------------------------------------------
@@ -41,6 +42,7 @@ async def request_time_taken(request: Request, call_next):
     return response
 
 
+# -- ROUTES PUBLIC ------------------------------------------------------------
 @app.get("/")
 async def public_root():
     return {
@@ -48,6 +50,7 @@ async def public_root():
     }
 
 
+# -- ROUTES TODOS -------------------------------------------------------------
 @app.post("/api/todos/items", status_code=status.HTTP_201_CREATED, response_model=TodoSnippet)
 async def create_todo(
     todo: TodoSnippet,
@@ -93,6 +96,61 @@ async def delete_todo(
     success = handler.delete(modelname="todos", item_id=uid)
     response.status_code = status.HTTP_204_NO_CONTENT if success else status.HTTP_404_NOT_FOUND
     return {"deleted": success}
+
+
+# -- ROUTES USERS -------------------------------------------------------------
+@app.get("/api/user")
+async def read_user(
+    handler = Depends(crud.get_json_handler),
+    current_user: User = Depends(crud.get_current_user),  # ! this is mocked for testing and always returns the default user!
+):
+    users = handler.read_many(modelname="users")
+    return [User(**user) for user in users if User(**user) == current_user]
+
+
+
+@app.post("/token", response_model=Token)
+async def login_for_access_token(form_data: security.OAuth2PasswordRequestForm = Depends()):
+    """
+    OAuth2 compatible token login, get an access token for future requests.
+
+    raises HTTPException(401) if user could not be found.\
+    raises HTTPException(401) if user could not be authenticated.\
+    raises HTTPException(401) if user disabled.
+    """
+    username = form_data.username
+    user = authenticate_user(username=username, password=form_data.password)
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"User matching '{username}' not found.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Incorrect password for User '{username}'.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    if user.disabled:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Useraccount for '{username}' is disabled.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    # scopes have been validated
+    scopes: list = dissassemble_comma_seperated_lists_of_strings(user.scopes)
+
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token: JWTAccessToken = create_access_token(
+        subject={
+            "sub": user.email,
+            "scopes": scopes,
+        },
+        expires_delta=access_token_expires
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
 
 
 # -----------------------------------------------------------------------------

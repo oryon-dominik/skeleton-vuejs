@@ -8,23 +8,23 @@ from pathlib import Path
 class CrudHandler(ABC):
     @abstractmethod
     def create(self, modelname: str, item: Any) -> Any:
-        raise NotImplementedError("Implment this method.")
+        raise NotImplementedError("Implement this method.")
 
     @abstractmethod
     def read(self, modelname: str, item_id: str) -> Any:
-        raise NotImplementedError("Implment this method.")
+        raise NotImplementedError("Implement this method.")
 
     @abstractmethod
     def read_many(self, modelname: str) -> List[Any]:
-        raise NotImplementedError("Implment this method.")
+        raise NotImplementedError("Implement this method.")
 
     @abstractmethod
     def update(self, modelname: str, item: Any, item_id: str) -> Any:
-        raise NotImplementedError("Implment this method.")
+        raise NotImplementedError("Implement this method.")
 
     @abstractmethod
     def delete(self, modelname: str, item_id: str) -> bool:
-        raise NotImplementedError("Implment this method.")
+        raise NotImplementedError("Implement this method.")
 
 
 class CrudHandlerForJsonFiles(CrudHandler):
@@ -124,8 +124,9 @@ def get_json_handler() -> Generator:
     handler: CrudHandler = CrudHandlerForJsonFiles()
     yield handler
 
+
 def get_current_user() -> Generator:
     from .models import User
     handler = next(get_json_handler())
-    user_dict = handler.read('users', 1)  # ! this is mocked for testing and always returns the default user!
+    user_dict = handler.read('users', "0aeabf01-7fc0-427a-b534-e52707d137f0")  # ! this is mocked for testing and always returns the default user!
     yield User(**user_dict)
