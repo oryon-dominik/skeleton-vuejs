@@ -20,15 +20,19 @@ module.exports = {
     // Make sure "prettier" is the last element in this list.
     '@vue/eslint-config-typescript/recommended',
     '@vue/eslint-config-prettier',
-    'prettier'
+    'prettier',
   ],
   env: {
-    'vue/setup-compiler-macros': true
+    'vue/setup-compiler-macros': true,
   },
   rules: {
-    quotes: ['error', 'single'],
-    'vue/require-v-for-key': 'off'
+    quotes: ['error', 'double'],
     // add your custom rules here
+    'vue/require-v-for-key': 'off',
+    'comma-dangle': ['error', 'ignore'],
+    'no-irregular-whitespace': 'off',
+    "array-element-newline": ["error", "consistent"],
+    "array-bracket-newline": ["error", "consistent"],
   },
   overrides: [
     {

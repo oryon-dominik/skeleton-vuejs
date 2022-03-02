@@ -47,4 +47,3 @@ module.exports = withAnimations({
     require("tailwindcss-hero-patterns"),
   ],
 })
-  

@@ -1,39 +1,37 @@
 import { defineStore } from 'pinia'
-import { getMany } from "../api/crud";
-import { Endpoint } from '../api/endpoints';
-
+import { getMany } from '../api/crud'
+import { Endpoint } from '../api/endpoints'
 
 export type Tag = {
-  name: string;
+  name: string
 }
 
 export type Todo = {
-  name: string;
-  url: string;
-  owner_url: string;
-  todolist: string;
-  description: string;
-  tags: Tag[];
-  is_done: boolean;
+  name: string
+  url: string
+  owner_url: string
+  todolist: string
+  description: string
+  tags: Tag[]
+  is_done: boolean
 }
 
 export type TodoState = {
-  todos: Todo[],
-  activeTodo: {},
-  filter_for_tags: Tag[],
-  error: null | string,
-  loaded: boolean,
+  todos: Todo[]
+  activeTodo: Record<string, unknown>
+  filter_for_tags: Tag[]
+  error: null | string
+  loaded: boolean
 }
 
-
 export const useTodos = defineStore({
-  id: "todos",
+  id: 'todos',
   state: () => ({
     todos: [] as Todo[],
     activeTodo: {},
     filter_for_tags: [],
     error: null,
-    loaded: false,
+    loaded: false
   }),
   getters: {
     // getUnfinishedTodos(state: TodoState): Todo[] {
@@ -42,16 +40,15 @@ export const useTodos = defineStore({
   },
   actions: {
     async getAllTodoItemsFromAPI() {
-      const route = Endpoint.todoitems;
-      const { restResponse, error } = await getMany(route);
+      const route = Endpoint.todoitems
+      const { restResponse, error } = await getMany(route)
       if (error) {
-          console.error(error);
-          return;
+        console.error(error)
+        return
       }
-      const todos = restResponse as unknown as Todo[];
-      this.todos = todos;
-
-      this.loaded = true;
-    },
-  },
+      const todos = restResponse as unknown as Todo[]
+      this.todos = todos
+      this.loaded = true
+    }
+  }
 })

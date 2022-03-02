@@ -24,7 +24,8 @@ export default defineComponent({
     async function getTodos() {
       const todoStore = useTodos()
       await todoStore.getAllTodoItemsFromAPI()
-      this.todos = todoStore.todos
+      // this.todos = todoStore.todos
+      todos.value = todoStore.todos // WTF, what is correct here?!
     }
     return {
       getTodos,
