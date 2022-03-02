@@ -5,9 +5,7 @@
       <p class="text-red-500">You have a new messsage :)!</p>
       <button @click="getTodos()">callAPI</button>
       <ul v-for="todo in todos">
-        <li>
-          {{ todo.name }}
-        </li>
+        <li>{{ todo.name }}: {{ todo.description }}</li>
       </ul>
     </div>
   </div>
