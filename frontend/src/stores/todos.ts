@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
-import { getMany } from '../api/crud'
-import { Endpoint } from '../api/endpoints'
+import { defineStore } from "pinia"
+import { getMany } from "../api/crud"
+import { Endpoint } from "../api/endpoints"
 
 export type Tag = {
   name: string
@@ -25,7 +25,7 @@ export type TodoState = {
 }
 
 export const useTodos = defineStore({
-  id: 'todos',
+  id: "todos",
   state: () => ({
     todos: [] as Todo[],
     activeTodo: {},

@@ -12,7 +12,7 @@
 
 - DarkMode
 
-- Typography
+- TypoGraphy
 
 - HeadlessUI (https://headlessui.dev/vue)
 

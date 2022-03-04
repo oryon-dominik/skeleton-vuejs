@@ -1,11 +1,11 @@
-import axios from 'axios'
-import type { AxiosInstance } from 'axios'
+import axios from "axios"
+import type { AxiosInstance } from "axios"
 
 export type HttpClient = AxiosInstance
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_APP_BACKEND_BASE_URL + '/' + import.meta.env.VITE_APP_API_VERSION_URL,
+  baseURL: import.meta.env.VITE_APP_BACKEND_BASE_URL + "/" + import.meta.env.VITE_APP_API_VERSION_URL,
   withCredentials: true,
-  headers: { 'Content-Type': 'application/json' }
+  headers: { "Content-Type": "application/json" }
 })
 
 export const httpClient: HttpClient = axiosInstance

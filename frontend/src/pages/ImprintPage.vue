@@ -1,19 +1,22 @@
 <template>
-    <h1>About</h1>
+  <h1>Imprint</h1>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
 export default defineComponent({
-  name: "About",
+  name: "ImprintPage",
   components: {},
   props: {
-    msg: String
+    msg: {
+      type: String,
+      default: "Impressum"
+    }
   },
   setup() {
-    return {};
+    return {}
   }
-});
+})
 </script>
 <style lang="scss" scoped></style>

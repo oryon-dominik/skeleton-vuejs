@@ -12,20 +12,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { useTodos } from '../stores/todos'
-import type { Todo } from '../stores/todos'
+import { defineComponent, ref } from "vue"
+import { useTodos } from "../stores/todos"
+import type { Todo } from "../stores/todos"
 
 export default defineComponent({
-  name: 'ToDoList',
+  name: "ToDoList",
   components: {},
   setup() {
     const todos = ref([] as Todo[])
     async function getTodos() {
       const todoStore = useTodos()
       await todoStore.getAllTodoItemsFromAPI()
-      // this.todos = todoStore.todos
-      todos.value = todoStore.todos // WTF, what is correct here?!
+      todos.value = todoStore.todos
     }
     return {
       getTodos,

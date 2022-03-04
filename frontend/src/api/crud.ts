@@ -1,7 +1,7 @@
-import type { Endpoint } from './endpoints'
-import { httpClient } from './httpClient'
+import type { Endpoint } from "./endpoints"
+import { httpClient } from "./httpClient"
 
-import { useApplication } from '../stores/application'
+import { useApplication } from "../stores/application"
 
 export type BackendAPIResponseMany = {
   count: number
@@ -23,14 +23,14 @@ export type GetManyAPIReturned = {
  * @param param query params for filtering the results
  * @returns queryResult the REST response with the list of objects and the error
  */
-async function getMany(route: Endpoint, pk = '', parameters = ''): Promise<GetManyAPIReturned> {
+async function getMany(route: Endpoint, pk = "", parameters = ""): Promise<GetManyAPIReturned> {
   const application = useApplication()
   application.startLoading()
   const queryResult: GetManyAPIReturned = {
     restResponse: {
       count: 0,
-      next: '',
-      previous: '',
+      next: "",
+      previous: "",
       results: []
     },
     error: null

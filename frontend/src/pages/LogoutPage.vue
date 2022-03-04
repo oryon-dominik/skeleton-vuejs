@@ -1,15 +1,18 @@
 <!-- <template>
-  <h1>Login</h1>
+  <h1>Logout</h1>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import Authenticate from "../components/users/Authenticate.vue";
+import Unauthenticate from "../components/users/Unauthenticate.vue";
 
 export default defineComponent({
-  name: "Login",
+  name: "LogoutPage",
   components: {
-    Authenticate
+    Unauthenticate
+  },
+  setup() {
+    return {};
   }
 });
 </script>

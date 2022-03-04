@@ -69,7 +69,7 @@ export const useAuth = defineStore({
       console.log("Cookies.get()", Cookies.get());
       // Cookies.remove('access_token');  TODO: check: is this automatically done by the browser? (because it's set empty here..?!)
       const router = useRouter();
-      router.push({ name: "Home" });
+      router.push({ name: "HomePage" });
     },
   },
 

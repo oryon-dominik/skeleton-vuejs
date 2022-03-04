@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia"
 
 // 'application' is the name of the store. It is unique across your application and will appear in devtools.
 export const useApplication = defineStore({
@@ -7,24 +7,22 @@ export const useApplication = defineStore({
   state: () => {
     return {
       lastRoute: null as string | null,
-      loading: 0 as number, // every loading coroutine will increment this value
+      loading: 0 as number // every loading coroutine will increment this value
     }
   },
   actions: {
-    setLastRoute(route: string ) {
-      this.lastRoute = route;
+    setLastRoute(route: string) {
+      this.lastRoute = route
     },
     startLoading() {
-      this.loading++;
+      this.loading++
     },
     finishLoading() {
-      this.loading--;
+      this.loading--
     }
   },
   persist: {
     enabled: true,
-    strategies: [
-      { storage: localStorage, paths: ['lastRoute'] },
-    ],
-  },
+    strategies: [{ storage: localStorage, paths: ["lastRoute"] }]
+  }
 })

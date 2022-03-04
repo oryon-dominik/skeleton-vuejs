@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie"
 
 class CookieStorage extends Storage {
   setItem(key: string, value: string): string | undefined {

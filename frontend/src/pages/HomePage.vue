@@ -1,10 +1,10 @@
 <template>
-  <h1>Home</h1>
+  <h1>HomePage</h1>
   This is the Home-page showing
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from "vue"
 // import { useStore } from "vuex";
 // import { useRouter } from "vue-router";
 // import Authenticate from "../components/authentication/Authenticate.vue";
@@ -12,17 +12,17 @@ import { defineComponent, ref } from "vue";
 // import ForgetPassword from "./../components/authentication/ForgetPassword.vue";
 
 export default defineComponent({
-  name: "Home",
+  name: "HomePage",
   components: {
-//     // Authenticate,
-//     // Registration,
-//     // ForgetPassword
+    // Authenticate,
+    // Registration,
+    // ForgetPassword
   },
   setup() {
     // const authActive = ref(false);
     // const regActive = ref(false);
     // const store = useStore();
-    
+
     // FIXME: testing the vuex-store
     // console.log("foobar's state:", store.state.foobar)
     // store.commit('foobar/incrementFoobar', 10)
@@ -68,10 +68,8 @@ export default defineComponent({
       // authDeactivate,
       // showForgetPassword,
       // activateForgetPassword
-    };
+    }
   }
-});
+})
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

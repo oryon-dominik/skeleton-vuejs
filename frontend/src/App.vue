@@ -10,7 +10,7 @@
   <!-- Also included:  -->
     <!-- <HeroIcons /> -->
     <!-- <HeroPatterns /> -->
-    <!-- <Typography /> -->
+    <!-- <TypoGraphy /> -->
     <!-- <TypeScriptTutorial /> -->
     <!-- <DarkModeSwitch /> -->
     <!-- <h1 class="text-gray-900 dark:text-white">Dark mode is here!</h1> -->
@@ -27,7 +27,7 @@ import Navigation from './components/generics/Navigation.vue'
 import DarkModeSwitch from './components/examples/DarkModeSwitch.vue'
 import HeroIcons from './components/examples/HeroIcons.vue'
 import HeroPatterns from './components/examples/HeroPatterns.vue'
-import Typography from './components/examples/Typography.vue'
+import TypoGraphy from './components/examples/TypoGraphy.vue'
 // import TypeScriptTutorial from './components/examples/TypeScriptTutorial.vue'
 
 export default defineComponent({
@@ -37,7 +37,7 @@ export default defineComponent({
     DarkModeSwitch,
     HeroIcons,
     HeroPatterns,
-    Typography,
+    TypoGraphy,
     // TypeScriptTutorial
   },
 })

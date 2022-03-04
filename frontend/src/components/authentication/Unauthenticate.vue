@@ -5,7 +5,7 @@
         <div class="n">
           <input
             type="submit"
-            value="Logout"
+            value="LogoutPage"
             class=""
           />
         </div>
@@ -28,7 +28,7 @@ export default defineComponent({
       // store.dispatch("user/logout");
       // store.dispatch("todos/clearState");
       localStorage.clear();
-      router.push({ name: "Home" });
+      router.push({ name: "HomePage" });
     };
     return {
       unauthenticate
