@@ -19,11 +19,11 @@ const routes: RouteRecordRaw[] = [
     // which is lazy-loaded when the route is visited.
     component: () => import("../pages/AboutPage.vue")
   },
-  // {
-  //   path: "/login",
-  //   name: "",
-  //   component: () => import("../pages/.vue")
-  // },
+  {
+    path: "/login",
+    name: "LoginPage",
+    component: () => import("../pages/LoginPage.vue")
+  },
   // {
   //   path: "/logout",
   //   name: "LogoutPage",

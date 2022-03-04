@@ -1,75 +1,65 @@
-<!-- <template>
+<template>
   <div>
-    <h2
-      class=""
-      :class="{
-        '': !isActive,
-        '': isActive
-      }"
-    >
-      Login
-    </h2>
-    <p class="" v-if="error != null">{{ error }}</p>
-    <form v-on:submit.prevent="authenticate()">
-      <fieldset class="">
-        <div class="">
+    <div class="bg-black">foo</div>
+    <!-- <h2 class="static" :class="{ active: isActive }">Login</h2> -->
+
+    <!-- <p v-if="error != null" class>{{ error }}</p> -->
+    <!-- <form @submit.prevent="authenticate()">
+      <fieldset class>
+        <legend>Login</legend>
+        <div class>
           <input
-            @mouseup="handleFormMouseEvent"
+            v-model="username"
             type="text"
             name="username"
-            class=""
+            class
             placeholder="E-Mail-Adresse"
-            v-model="username"
             data-testid="input-username"
+            @mouseup="handleFormMouseEvent"
           />
         </div>
-        <div class="">
+        <div class>
           <input
-            @mouseup="handleFormMouseEvent"
+            v-model="password"
             type="password"
             name="password"
-            class=""
+            class
             placeholder="Passwort"
-            v-model="password"
             data-testid="input-password"
+            @mouseup="handleFormMouseEvent"
           />
         </div>
-        <div class="">
-          <input
-            type="submit"
-            value="Jetzt anmelden"
-            class=""
-            data-testid="input-submit"
-          />
+        <div class>
+          <input type="submit" value="Jetzt anmelden" class data-testid="input-submit" />
         </div>
       </fieldset>
-    </form>
-    <div class="">
-      <a @click.prevent="passwordForgetClicked">Passwort vergessen ></a>
+    </form> -->
+    <div class>
+      <!-- <a @click.prevent="passwordForgetClicked">Passwort vergessen ></a> -->
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, computed, onErrorCaptured } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+<!-- <script lang="ts">
+import { defineComponent, ref, computed, onErrorCaptured } from "vue"
+import { useStore } from "vuex"
+import { useRouter } from "vue-router"
 
 export default defineComponent({
   name: "Authenticate",
   props: {},
-  
+
   setup(props, context) {
-    const router = useRouter();
-    const username = ref(null);
-    const password = ref(null);
-    const isActive = ref(false);
-    const store = useStore();
-    const isLoggedIn = computed(() => store.state.user.isLoggedIn);
-    const error = ref(null);
+    const router = useRouter()
+    const username = ref(null)
+    const password = ref(null)
+    const isActive = ref(false)
+    const store = useStore()
+    const isLoggedIn = computed(() => store.state.user.isLoggedIn)
+    const error = ref(null)
 
     // onErrorCaptured(() => {
-    //   console.log('ErrorCaptured!')
+    //   console.log("ErrorCaptured!")
     //   // err: Error, instance: Component, info: string => ?boolean
     // })
 
@@ -77,27 +67,27 @@ export default defineComponent({
       const authResponse = await store.dispatch("user/login", {
         username: username.value,
         password: password.value
-      });
+      })
       if (authResponse && isLoggedIn) {
-        //localStorage.removeItem('vuex')
-        router.push({ name: "Dashboard" });
+        //localStorage.removeItem("vuex")
+        router.push({ name: "Dashboard" })
       } else {
-        error.value = "Sorry, Username oder Passwort sind nicht bekannt";
+        error.value = "Sorry, Username oder Passwort sind nicht bekannt"
       }
-    };
+    }
 
     function handleFormMouseEvent() {
-      context.emit("on-form-mouse-up");
-      isActive.value = true;
+      context.emit("on-form-mouse-up")
+      isActive.value = true
     }
 
     function deactivate() {
       isActive.value = false;
-      context.emit("authentication-deactivate");
+      context.emit("authentication-deactivate")
     }
 
     function passwordForgetClicked() {
-      context.emit("password-forget-clicked");
+      context.emit("password-forget-clicked")
     }
 
     return {
@@ -109,9 +99,9 @@ export default defineComponent({
       handleFormMouseEvent,
       deactivate,
       passwordForgetClicked
-    };
+    }
   }
-});
-</script>
+})
+</script> -->
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>

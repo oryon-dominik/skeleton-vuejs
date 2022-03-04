@@ -1,17 +1,19 @@
-<!-- <template>
-  <h1>Login</h1>
+<template>
+  <div class="p-6 bg-red-400">
+    <Authenticate />
+  </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-import Authenticate from "../components/users/Authenticate.vue";
+<script lang="ts">
+import { defineComponent } from "vue"
+import Authenticate from "../components/authentication/Authenticate.vue"
 
 export default defineComponent({
   name: "LoginPage",
   components: {
     Authenticate
   }
-});
+})
 </script>
 
-<style></style> -->
+<style></style>

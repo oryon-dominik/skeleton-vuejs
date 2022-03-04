@@ -2,6 +2,7 @@
   <router-link class to="/">Home</router-link>
   <router-link class to="/about">About</router-link>
   <router-link class to="/todos">Todos</router-link>
+  <router-link class to="/login">Login</router-link>
 </template>
 
 <script lang="ts">

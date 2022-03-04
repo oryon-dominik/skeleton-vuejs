@@ -17,5 +17,22 @@ import { defineComponent } from "vue"
 export default defineComponent({
   name: "HeroPatterns"
 })
+
+// ! define used patterns in the tailwind-config theme
+// available patterns:
+// jigsaw, overcast, formalinvitation, topography, texture, jupiter, architect,
+// cutout, hideout, graphpaper, yyy, squares, fallingtriangles, pianoman,
+// piefactory, dominos, hexagons, charliebrown, autumn, temple,
+// stampcollection, deathstar, churchonsunday, ilikefood, overlappinghexagons,
+// fourpointstars, bamboo, bathroomfloor, corkscrew, happyintersection, kiwi,
+// lips, lisbon, randomshapes, steelbeams, tinycheckers, xequals, anchorsaway,
+// bevelcircle, brickwall, fancyrectangles, heavyrain, overlappingcircles,
+// plus, roundedplusconnected, volcanolamp, wiggle, bubbles, cage, connections,
+// current, diagonalstripes, flippeddiamonds, floatingcogs, glamorous,
+// houndstooth, leaf, linesinmotion, moroccan, morphingdiamonds, rails, rain,
+// skulls, squaresinsquares, stripes, tictactoe, zigzag, aztec, banknote,
+// boxes, circlessquares, circuitboard, curtain, diagonallines, endlessclouds,
+// eyes, floortile, groovy, intersectingcircles, melt, overlappingdiamonds,
+// parkayfloor, pixeldots, polkadots, signal, slantedstars, wallpaper
 </script>
 <style lang="scss" scoped></style>
