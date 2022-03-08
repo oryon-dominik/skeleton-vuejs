@@ -7,10 +7,10 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: [
-      "./tsconfig.eslint.json",
-      './tsconfig.json',
-      "./tailwind.config.js",
-      "./postcss.config.js",
+      resolve(__dirname, "./tsconfig.eslint.json"),
+      resolve(__dirname, './tsconfig.json'),
+      resolve(__dirname, "./tailwind.config.js"),
+      resolve(__dirname, "./postcss.config.js")
     ],
     parser: "@typescript-eslint/parser",
     extraFileExtensions: [".vue", ".html"]
@@ -30,7 +30,7 @@ module.exports = {
   ],
   env: {
     "vue/setup-compiler-macros": true,
-    node: true,
+    node: true
   },
   rules: {
     quotes: "off",
