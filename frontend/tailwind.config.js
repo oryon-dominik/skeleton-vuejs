@@ -1,6 +1,7 @@
 const heropatterns = require("tailwindcss-hero-patterns/src/patterns")
+const withAnimations = require("animated-tailwindcss");
 
-module.exports = {
+module.exports = withAnimations({
   content: [
     // paths to all template files
     "./index.html",
@@ -31,10 +32,28 @@ module.exports = {
     heroPatternsShades: ["100", "500"],
     heroPatternsColors: ["blue", "red"],
 
+    screens: {
+      mobile: "640px",
+      laptop: "1024px",
+      desktop: "1440px",
+    },
+
     extend: {
       colors: {
         cyberred: "#861A22"
-      }
+      },
+      width: {
+        "mobile": "640px",
+        "laptop": "768px",
+        "desktop": "1080px",
+        "fourk": "1536px",
+      },
+      // height: {
+      //   "mobile": "600px",
+      //   "laptop": "600px",
+      //   "desktop": "1080px",
+      //   "fourk": "1440px",
+      // },
     }
   },
   plugins: [
@@ -50,4 +69,4 @@ module.exports = {
     // https://github.com/adoxography/tailwind-scrollbar
     require('tailwind-scrollbar'),
   ]
-}
+})
