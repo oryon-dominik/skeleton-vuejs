@@ -1,7 +1,6 @@
 const heropatterns = require("tailwindcss-hero-patterns/src/patterns")
-const withAnimations = require("animated-tailwindcss")
 
-module.exports = withAnimations({
+module.exports = {
   content: [
     // paths to all template files
     "./index.html",
@@ -51,4 +50,4 @@ module.exports = withAnimations({
     // https://github.com/adoxography/tailwind-scrollbar
     require('tailwind-scrollbar'),
   ]
-})
+}
