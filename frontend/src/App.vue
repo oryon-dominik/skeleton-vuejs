@@ -1,40 +1,43 @@
 <template>
-  <div class="wrapper heropattern-eyes-red-100">
-    <div class="container w-full h-full">
-      <div class="heropattern-eyes-red-100">
-        <div class="bg-cyberred opacity-90">
-          <header>
-            <div class="grid grid-cols-3 gap-2">
-              <div>
-                <MoonIcon class="w-8 h-8 text-yellow-500" />
-              </div>
-              <div>
-                <img
-                  class="object-contain w-full h-48"
-                  alt="Logo"
-                  src="./assets/cyberise_logo_centered_small_resized_for_web.png"
-                />
-              </div>
-              <div>
-                <!-- empty col -->
-              </div>
-              <div class="col-span-3">
-                <Navigation />
-              </div>
+  <h1 class="animate-bounce animate-infinite">Forever Bouncing Heading</h1>
+  <div class="w-screen h-screen max-h-screen overflow-hidden bg-fixed heropattern-eyes-red-100">
+    <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
+      <div class="flex flex-col w-screen h-screen gap-2 mx-auto max-h-fit max-w-fit">
+        <header class="order-first bg-blue-400 place-self-center">
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <MoonIcon class="w-8 h-8 text-yellow-500" />
             </div>
-          </header>
+            <div>
+              <img
+                class="object-contain w-full h-48"
+                alt="Logo"
+                src="./assets/cyberise_logo_centered_small_resized_for_web.png"
+              />
+            </div>
+            <div>
+              <!-- empty col -->
+            </div>
+            <div class="col-span-3">
+              <Navigation />
+            </div>
+          </div>
+        </header>
 
-          <!-- Flex version classes: "flex items-center justify-center h-screen" -->
-          <div class="grid h-screen place-items-center">
-            <div class="relative h-32 w-32...">
-              <div class="absolute inset-0 ...">
+        <div class="flex-initial w-5/6 max-h-screen min-w-full mx-2 max-w-screen place-self-center h-4/6">
+          <div class="w-full h-full p-2 bg-white rounded-lg shadow-2xl shadow-black">
+            <div class="container w-full h-full p-2 mx-auto bg-green-500 rounded-lg drop-shadow-2xl">
+              <div
+                class="w-full h-full overflow-x-auto overflow-y-scroll bg-blue-400 overscroll-scroll scrollbar scrollbar-thumb-red-900 scrollbar-track-red-100"
+              >
                 <router-view />
               </div>
             </div>
           </div>
+        </div>
 
-          <footer>Footer</footer>
-
+        <footer class="order-last bg-green-400 place-self-center">
+          <h2 class="font-bold text-red-500">Footer</h2>
           <!-- prettier-ignore -->
           <div>
             <!-- Also included:  -->
@@ -45,7 +48,7 @@
             <!-- <DarkModeSwitch /> //NOSONAR -->
             <!-- <h1 class="text-gray-900 dark:text-white">Dark mode is here!</h1> //NOSONAR -->
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   </div>
@@ -86,8 +89,6 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   background-color: $cyberred;
 }
 </style>

@@ -1,4 +1,3 @@
-/* eslint-disable */
 const heropatterns = require("tailwindcss-hero-patterns/src/patterns")
 const withAnimations = require("animated-tailwindcss")
 
@@ -41,13 +40,15 @@ module.exports = withAnimations({
   },
   plugins: [
     // https://github.com/tailwindlabs/tailwindcss-typography
-    require("@tailwindcss/typography"), 
+    require("@tailwindcss/typography"),
 
     // https://github.com/tailwindlabs/tailwindcss-forms
     require("@tailwindcss/forms"),
 
     // https://github.com/svengau/tailwindcss-hero-patterns
-    require("tailwindcss-hero-patterns")
+    require("tailwindcss-hero-patterns"),
+
+    // https://github.com/adoxography/tailwind-scrollbar
+    require('tailwind-scrollbar'),
   ]
 })
-/* eslint-enable */

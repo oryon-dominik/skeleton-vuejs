@@ -6,7 +6,12 @@ module.exports = {
   parser: "vue-eslint-parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ["./tsconfig.eslint.json"],
+    project: [
+      "./tsconfig.eslint.json",
+      './tsconfig.json',
+      "./tailwind.config.js",
+      "./postcss.config.js",
+    ],
     parser: "@typescript-eslint/parser",
     extraFileExtensions: [".vue", ".html"]
   },
@@ -24,7 +29,8 @@ module.exports = {
     "prettier"
   ],
   env: {
-    "vue/setup-compiler-macros": true
+    "vue/setup-compiler-macros": true,
+    node: true,
   },
   rules: {
     quotes: "off",
