@@ -6,19 +6,12 @@ module.exports = {
   parser: "vue-eslint-parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: [
-      "./tsconfig.eslint.json",
-      './tsconfig.json',
-      "./tailwind.config.js",
-      "./postcss.config.js"
-    ],
+    project: ["./tsconfig.eslint.json", "./tsconfig.json", "./tailwind.config.js", "./postcss.config.js"],
     ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
     extraFileExtensions: [".vue", ".html"]
   },
-  plugins: [
-    "@typescript-eslint"
-  ],
+  plugins: ["@typescript-eslint", "html"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

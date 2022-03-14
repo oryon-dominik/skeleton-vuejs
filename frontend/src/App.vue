@@ -2,18 +2,17 @@
   <div class="w-screen h-screen max-h-screen overflow-hidden bg-fixed heropattern-eyes-red-100">
     <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
       <div class="flex flex-col w-screen h-full gap-2 mx-auto max-h-fit max-w-fit">
-
         <!-- setting the horizontal viewport resolution here -->
-        <header class="order-first w-full place-self-center mobile:w-mobile laptop:w-laptop desktop:w-desktop">
+        <header class="order-first w-full place-self-center sm:w-sm md:w-md lg:w-lg">
           <Navigation />
         </header>
 
         <div class="flex-initial w-5/6 max-h-screen min-w-full mx-2 h-5/6 max-w-screen place-self-center">
-          <Content />
+          <RouterViewContent />
         </div>
 
         <footer class="order-last place-self-center">
-          <Footer />
+          <FooterComponent />
         </footer>
 
         <!-- Included extras:
@@ -34,8 +33,8 @@ import { defineComponent } from "vue"
 
 // generic-components
 import Navigation from "./components/generics/Navigation.vue"
-import Content from "./components/generics/Content.vue"
-import Footer from "./components/generics/Footer.vue"
+import RouterViewContent from "./components/generics/RouterViewContent.vue"
+import FooterComponent from "./components/generics/Footer.vue"
 
 // examples
 // import HeroIcons from "./components/examples/HeroIcons.vue"
@@ -47,13 +46,13 @@ export default defineComponent({
   name: "App",
   components: {
     Navigation,
-    Content,
-    Footer,
+    RouterViewContent,
+    FooterComponent,
     // HeroIcons,
     // HeroPatterns,
     TypoGraphy,
     // TypeScriptTutorial
-  },
+  }
 })
 </script>
 

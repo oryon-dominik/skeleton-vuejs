@@ -1,12 +1,12 @@
 <template>
-
-  <Disclosure as="nav" class="bg-white dark:bg-gray-800" v-slot="{ open }">
+  <Disclosure v-slot="{ open }" as="nav" class="bg-white dark:bg-gray-800">
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-  
         <!-- Mobile menu button-->
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <DisclosureButton class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          <DisclosureButton
+            class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          >
             <span class="sr-only">Open main menu</span>
             <MenuIcon v-if="!open" class="block w-6 h-6" aria-hidden="true" />
             <XIcon v-else class="block w-6 h-6" aria-hidden="true" />
@@ -16,13 +16,33 @@
         <!-- Main menu + LOGO -->
         <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
           <div class="flex items-center flex-shrink-0">
-            <img class="block object-contain w-auto h-16 animate-pulse animate slow lg:hidden" src="../../assets/cyberise_logo_centered_small_resized_for_web.png" alt="logo" />
-            <img class="hidden object-contain w-auto h-16 animate-pulse animate slow lg:block" src="../../assets/cyberise_logo_centered_small_resized_for_web.png" alt="logo" />
+            <img
+              class="block object-contain w-auto h-16 animate-pulse animate slow lg:hidden"
+              src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
+              alt="logo"
+            />
+            <img
+              class="hidden object-contain w-auto h-16 animate-pulse animate slow lg:block"
+              src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
+              alt="logo"
+            />
           </div>
 
-          <div class="hidden sm:block sm:ml-6">
+          <div class="desktop:block desktop:ml-6 mobile:hidden">
             <div class="flex space-x-4">
-              <router-link v-for="item in navigation" :key="item.name" class :to="item.to" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+              <router-link
+                v-for="item in navigation"
+                :key="item.name"
+                class
+                :to="item.to"
+                :class="[
+                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  'px-3 py-2 rounded-md text-sm font-medium'
+                ]"
+                :aria-current="item.current ? 'page' : undefined"
+              >
+                {{ item.name }}
+              </router-link>
             </div>
           </div>
         </div>
@@ -61,29 +81,40 @@
       </div>
     </div>
 
-    <DisclosurePanel class="sm:hidden">
+    <DisclosurePanel class="desktop:hidden laptop:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+        <DisclosureButton
+          v-for="item in navigation"
+          :key="item.name"
+          as="router-link"
+          :to="item.to"
+          :class="[
+            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+            'block px-3 py-2 rounded-md text-base font-medium'
+          ]"
+          :aria-current="item.current ? 'page' : undefined"
+        >
+          {{ item.name }}
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>
-
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue"
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline"
 
 import DarkModeSwitch from "../examples/DarkModeSwitch.vue"
 
 const navigation = [
-  {to: "/", name: "Home", current: true },
-  {to: "/about", name: "About", current: false },
-  {to: "/todos", name: "Todos", current: false },
-  {to: "/tutorial", name: "Tutorial", current: false },
-  {to: "/login", name: "Login", current: false },
+  { to: "/", name: "Home", current: true },
+  { to: "/about", name: "About", current: false },
+  { to: "/todos", name: "Todos", current: false },
+  { to: "/tutorial", name: "Tutorial", current: false },
+  { to: "/login", name: "Login", current: false }
 ]
 
 export default defineComponent({
@@ -99,14 +130,13 @@ export default defineComponent({
     MenuItems,
     BellIcon,
     MenuIcon,
-    XIcon,
+    XIcon
   },
   setup() {
     return {
-      navigation,
+      navigation
     }
-  },
+  }
 })
-
 </script>
 <style lang="scss" scoped></style>
