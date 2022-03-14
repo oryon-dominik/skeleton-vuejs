@@ -33,9 +33,10 @@ module.exports = withAnimations({
     heroPatternsColors: ["blue", "red"],
 
     screens: {
-      mobile: "640px",
-      laptop: "1024px",
-      desktop: "1440px"
+      sm: "640px", // mobile
+      md: "768px", // laptop
+      lg: "1024px", // desktop
+      xl: "1280px" // 4k
     },
 
     extend: {

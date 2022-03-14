@@ -3,7 +3,7 @@
     <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
       <div class="flex flex-col w-screen h-full gap-2 mx-auto max-h-fit max-w-fit">
         <!-- setting the horizontal viewport resolution here -->
-        <header class="order-first w-full place-self-center sm:w-sm md:w-md lg:w-lg">
+        <header class="order-first w-full place-self-center lg:w-lg">
           <Navigation />
         </header>
 
