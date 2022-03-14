@@ -17,7 +17,6 @@ module.exports = {
     extraFileExtensions: [".vue", ".html"]
   },
   plugins: [
-    // "vue",
     "@typescript-eslint"
   ],
   extends: [
@@ -35,9 +34,9 @@ module.exports = {
   env: {
     "vue/setup-compiler-macros": true,
     node: true,
-    "browser": true,
-    "commonjs": true,
-    "es2021": true
+    browser: true,
+    commonjs: true,
+    es2021: true
   },
   rules: {
     quotes: "off",

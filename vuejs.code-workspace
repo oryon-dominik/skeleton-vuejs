@@ -20,11 +20,9 @@
 
         // typescript-settings
         "eslint.workingDirectories": [
-            { "directory": "./frontend", "changeProcessCWD": true }
+            { "directory": "${workspaceFolder}/frontend", "changeProcessCWD": true }
         ],
-        "eslint.packageManager": "npm",
-        "eslint.nodePath": "C:\\Program Files\\nodejs\\node.exe",
-        "eslint.runtime": "C:\\Program Files\\nodejs\\node.exe",
+        "eslint.packageManager": "yarn",
 
         // * launcher-config //////////////////////////////////////////////////
         "launch": {

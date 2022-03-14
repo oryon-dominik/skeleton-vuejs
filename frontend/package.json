@@ -15,7 +15,7 @@
     "test:unit:ci": "cypress run-ct --quiet --reporter spec",
     "typecheck": "vue-tsc --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext .vue,.js,.ts --ignore-path .gitignore --fix"
+    "lint": "eslint --ext .vue,.js,.ts,.cjs --ignore-path .gitignore --fix ."
   },
   "dependencies": {
     "@headlessui/vue": "^1.5.0",
