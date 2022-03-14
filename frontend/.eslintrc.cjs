@@ -12,10 +12,14 @@ module.exports = {
       resolve(__dirname, "./tailwind.config.js"),
       resolve(__dirname, "./postcss.config.js")
     ],
+    "ecmaVersion": "latest",
     parser: "@typescript-eslint/parser",
     extraFileExtensions: [".vue", ".html"]
   },
-  plugins: ["@typescript-eslint"],
+  plugins: [
+    // "vue",
+    "@typescript-eslint"
+  ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -30,7 +34,10 @@ module.exports = {
   ],
   env: {
     "vue/setup-compiler-macros": true,
-    node: true
+    node: true,
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
   },
   rules: {
     quotes: "off",
