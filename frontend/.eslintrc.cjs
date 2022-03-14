@@ -7,12 +7,12 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: [
-      resolve(__dirname, "./tsconfig.eslint.json"),
-      resolve(__dirname, './tsconfig.json'),
-      resolve(__dirname, "./tailwind.config.js"),
-      resolve(__dirname, "./postcss.config.js")
+      "./tsconfig.eslint.json",
+      './tsconfig.json',
+      "./tailwind.config.js",
+      "./postcss.config.js"
     ],
-    "ecmaVersion": "latest",
+    ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
     extraFileExtensions: [".vue", ".html"]
   },
