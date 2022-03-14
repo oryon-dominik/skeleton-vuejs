@@ -21,7 +21,9 @@
         // typescript-settings
         "eslint.workingDirectories": ["frontend"],
         "eslint.packageManager": "yarn",
-        "eslint.runtime": "${workspaceFolder}/frontend/node_modules/.bin/eslint",
+        // "eslint.nodePath": "node_modules/.bin/eslint",
+        
+        "eslint.runtime": "${workspaceFolder:skeleton-vuejs}/frontend/node_modules/.bin/eslint.cmd",
 
         // * launcher-config //////////////////////////////////////////////////
         "launch": {
