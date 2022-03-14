@@ -20,6 +20,8 @@
 
         // typescript-settings
         "eslint.workingDirectories": ["frontend"],
+        "eslint.packageManager": "yarn",
+        "eslint.runtime": "${workspaceFolder}/frontend/node_modules/.bin/eslint",
 
         // * launcher-config //////////////////////////////////////////////////
         "launch": {
