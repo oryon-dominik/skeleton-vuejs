@@ -1,5 +1,9 @@
 <template>
-  <Disclosure v-slot="{ open }" as="nav" class="bg-white dark:bg-gray-800">
+  <Disclosure
+    v-slot="{ open }"
+    as="nav"
+    class="p-1 my-1 duration-300 bg-white rounded-lg shadow-2xl dark:bg-gray-800 shadow-black transition-color"
+  >
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <!-- Mobile menu button-->
@@ -15,33 +19,48 @@
 
         <!-- Main menu + LOGO -->
         <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
-          <div class="flex items-center flex-shrink-0">
+          <div class="flex items-center flex-shrink-0 duration-300 transition-color">
+            <!-- logo mobile -->
             <img
-              class="block object-contain w-auto h-16 animate-pulse animate slow lg:hidden"
+              class="block object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:hidden dark:hidden"
               src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
               alt="logo"
             />
             <img
-              class="hidden object-contain w-auto h-16 animate-pulse animate slow lg:block"
+              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 dark:block animate-pulse animate slow lg:hidden"
+              src="../../assets/cyberise_logo_centered_small_resized_for_web_white.png"
+              alt="logo"
+            />
+            <!-- logo desktop -->
+            <img
+              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:block dark:hidden"
               src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
+              alt="logo"
+            />
+            <img
+              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:dark:block"
+              src="../../assets/cyberise_logo_centered_small_resized_for_web_white.png"
               alt="logo"
             />
           </div>
 
-          <div class="desktop:block desktop:ml-6 mobile:hidden">
+          <div class="self-center hidden lg:block lg:ml-6">
             <div class="flex space-x-4">
               <router-link
                 v-for="item in navigation"
+                v-slot="{ isActive, href, navigate }"
                 :key="item.name"
-                class
                 :to="item.to"
-                :class="[
-                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                  'px-3 py-2 rounded-md text-sm font-medium'
-                ]"
-                :aria-current="item.current ? 'page' : undefined"
               >
-                {{ item.name }}
+                <a
+                  :aria-current="isActive ? 'page' : undefined"
+                  :href="href"
+                  class="px-3 py-2 text-sm font-medium transition-all duration-500 rounded-md"
+                  :class="[isActive ? 'bg-gray-300 dark:bg-gray-600 text-gray-900' : 'text-gray-500 hover:bg-gray-400 dark:hover:text-gray-300 hover:text-gray-900']"
+                  @click="navigate"
+                >
+                  {{ item.name }}
+                </a>
               </router-link>
             </div>
           </div>
@@ -49,11 +68,13 @@
 
         <DarkModeSwitch />
 
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <div
+          class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+        >
           <!-- <button type="button" class="p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
             <span class="sr-only">View notifications</span>
             <BellIcon class="w-6 h-6" aria-hidden="true" />
-          </button> -->
+          </button>-->
 
           <!-- Profile dropdown -->
           <!-- <Menu as="div" class="relative ml-3">
@@ -76,25 +97,33 @@
                 </MenuItem>
               </MenuItems>
             </transition>
-          </Menu> -->
+          </Menu>-->
         </div>
       </div>
     </div>
 
-    <DisclosurePanel class="desktop:hidden laptop:hidden">
+    <!-- Mobile menu -->
+    <DisclosurePanel class="flex items-center justify-center">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton
-          v-for="item in navigation"
-          :key="item.name"
-          as="router-link"
-          :to="item.to"
-          :class="[
-            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'block px-3 py-2 rounded-md text-base font-medium'
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-        >
-          {{ item.name }}
+        <DisclosureButton>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <router-link
+              v-for="item in navigation"
+              v-slot="{ isActive, href, navigate }"
+              :key="item.name"
+              :to="item.to"
+            >
+              <a
+                :aria-current="isActive ? 'page' : undefined"
+                :href="href"
+                class="px-3 py-2 text-sm font-medium transition-all duration-500 rounded-md"
+                :class="[isActive ? 'bg-gray-300 dark:bg-gray-600 text-gray-900' : 'text-gray-500 hover:bg-gray-400 dark:hover:text-gray-300 hover:text-gray-900']"
+                @click="navigate"
+              >
+                {{ item.name }}
+              </a>
+            </router-link>
+          </div>
         </DisclosureButton>
       </div>
     </DisclosurePanel>
@@ -110,11 +139,11 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline"
 import DarkModeSwitch from "../examples/DarkModeSwitch.vue"
 
 const navigation = [
-  { to: "/", name: "Home", current: true },
-  { to: "/about", name: "About", current: false },
-  { to: "/todos", name: "Todos", current: false },
-  { to: "/tutorial", name: "Tutorial", current: false },
-  { to: "/login", name: "Login", current: false }
+  { to: "/", name: "Home" },
+  { to: "/about", name: "About" },
+  { to: "/todos", name: "Todos" },
+  { to: "/tutorial", name: "Tutorial" },
+  { to: "/login", name: "Login" }
 ]
 
 export default defineComponent({
@@ -133,6 +162,7 @@ export default defineComponent({
     XIcon
   },
   setup() {
+    console.log("navigation" + navigation)
     return {
       navigation
     }
