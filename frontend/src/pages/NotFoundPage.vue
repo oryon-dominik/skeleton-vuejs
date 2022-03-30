@@ -1,19 +1,17 @@
 <template>
-  <main class="min-h-full bg-top bg-cover sm:bg-top" style="background-image: url('https://i.ytimg.com/vi/NX942zT6iLE/maxresdefault.jpg')">
-    <div class="px-4 py-16 mx-auto text-center max-w-7xl sm:px-6 sm:py-24 lg:px-8 lg:py-48">
-      <p class="text-sm font-semibold tracking-wide text-black text-opacity-50 uppercase">404 error</p>
-      <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">These are not the Droids you're looking for.</h1>
-      <p class="mt-2 text-lg font-medium text-black text-opacity-50">The link to this the page didn't resolve.</p>
-      <div class="mt-6">
-        <router-link
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-black text-opacity-75 bg-white bg-opacity-75 border border-transparent rounded-md sm:bg-opacity-25 sm:hover:bg-opacity-50"
-          to="/"
-        >
-          Home
-        </router-link>
-      </div>
+  <div class="px-4 py-16 mx-auto text-center">
+    <div class="absolute left-0 w-full p-2 opacity-75 bg-gradient-to-b from-red-500 via-green-500 to-pink-600">
+      <h1 class="text-xl font-semibold tracking-wide text-opacity-50 uppercase">404 error</h1>
+      <h1 class="text-4xl font-extrabold">These are not the Droids you were looking for.</h1>
+      <p class="text-lg font-medium">The link to this the page didn't resolve.</p>
+      <router-link
+        class="inline-flex items-center px-3 py-2 m-3 font-bold text-blue-100 bg-blue-600 border rounded-md opacity-100 text-l hover:bg-orange-600 hover:text-blue-800 hover:border-red-700"
+        to="/"
+      >
+        Home
+      </router-link>
     </div>
-  </main>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,142 +1,23 @@
 <template>
-  <Disclosure
-    v-slot="{ open }"
-    as="nav"
-    class="p-1 my-1 duration-300 bg-white rounded-lg shadow-2xl dark:bg-gray-800 shadow-black transition-color"
-  >
-    <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-16">
-        <!-- Mobile menu button-->
-        <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
-          <DisclosureButton
-            class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-          >
-            <span class="sr-only">Open main menu</span>
-            <MenuIcon v-if="!open" class="block w-6 h-6" aria-hidden="true" />
-            <XIcon v-else class="block w-6 h-6" aria-hidden="true" />
-          </DisclosureButton>
-        </div>
-
-        <!-- Main menu + LOGO -->
-        <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
-          <div class="flex items-center flex-shrink-0 duration-300 transition-color">
-            <!-- logo mobile -->
-            <img
-              class="block object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:hidden dark:hidden"
-              src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
-              alt="logo"
-            />
-            <img
-              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 dark:block animate-pulse animate slow lg:hidden"
-              src="../../assets/cyberise_logo_centered_small_resized_for_web_white.png"
-              alt="logo"
-            />
-            <!-- logo desktop -->
-            <img
-              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:block dark:hidden"
-              src="../../assets/cyberise_logo_centered_small_resized_for_web.png"
-              alt="logo"
-            />
-            <img
-              class="hidden object-contain w-auto h-16 transition ease-in-out delay-100 animate-pulse animate slow lg:dark:block"
-              src="../../assets/cyberise_logo_centered_small_resized_for_web_white.png"
-              alt="logo"
-            />
-          </div>
-
-          <div class="self-center hidden lg:block lg:ml-6">
-            <div class="flex space-x-4">
-              <router-link
-                v-for="item in navigation"
-                v-slot="{ isActive, href, navigate }"
-                :key="item.name"
-                :to="item.to"
-              >
-                <a
-                  :aria-current="isActive ? 'page' : undefined"
-                  :href="href"
-                  class="px-3 py-2 text-sm font-medium transition-all duration-500 rounded-md"
-                  :class="[isActive ? 'bg-gray-300 dark:bg-gray-600 text-gray-900' : 'text-gray-500 hover:bg-gray-400 dark:hover:text-gray-300 hover:text-gray-900']"
-                  @click="navigate"
-                >
-                  {{ item.name }}
-                </a>
-              </router-link>
-            </div>
-          </div>
-
-          <DarkModeSwitch />
-        </div>
-
-        <div
-          class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-        >
-          <!-- <button type="button" class="p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="w-6 h-6" aria-hidden="true" />
-          </button>-->
-
-          <!-- Profile dropdown -->
-          <!-- <Menu as="div" class="relative ml-3">
-            <div>
-              <MenuButton class="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-              </MenuButton>
-            </div>
-            <transition enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
-              <MenuItems class="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <MenuItem v-slot="{ active }">
-                  <router-link class :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']" to="/">Home</router-link>
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
-                </MenuItem>
-              </MenuItems>
-            </transition>
-          </Menu>-->
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <DisclosurePanel class="flex items-center justify-center">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton>
-          <div class="flex flex-col items-center justify-center space-y-2">
-            <router-link
-              v-for="item in navigation"
-              v-slot="{ isActive, href, navigate }"
-              :key="item.name"
-              :to="item.to"
-            >
-              <a
-                :aria-current="isActive ? 'page' : undefined"
-                :href="href"
-                class="px-3 py-2 text-sm font-medium transition-all duration-500 rounded-md"
-                :class="[isActive ? 'bg-gray-300 dark:bg-gray-600 text-gray-900' : 'text-gray-500 hover:bg-gray-400 dark:hover:text-gray-300 hover:text-gray-900']"
-                @click="navigate"
-              >
-                {{ item.name }}
-              </a>
-            </router-link>
-          </div>
-        </DisclosureButton>
-      </div>
-    </DisclosurePanel>
-  </Disclosure>
+  <router-link v-for="item in navigation" v-slot="{ isActive, href, navigate }" :key="item.name" :to="item.to">
+    <a
+      :aria-current="isActive ? 'page' : undefined"
+      :href="href"
+      class="px-3 py-2 text-sm font-medium transition-all duration-500 border-2 border-gray-200 rounded-md dark:border-gray-700"
+      :class="[
+        isActive
+          ? 'bg-gray-300 dark:bg-black text-gray-900 dark:text-gray-100 transition-colors border-cyberred dark:border-cyberred'
+          : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 dark:bg-gray-800 dark:hover:text-gray-300 hover:text-gray-900 hover:border-cyberred dark:hover:border-cyberred'
+      ]"
+      @click="navigate"
+    >
+      {{ item.name }}
+    </a>
+  </router-link>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue"
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline"
-
-import DarkModeSwitch from "../examples/DarkModeSwitch.vue"
 
 const navigation = [
   { to: "/", name: "Home" },
@@ -147,22 +28,9 @@ const navigation = [
 ]
 
 export default defineComponent({
-  name: "NavBar",
-  components: {
-    DarkModeSwitch,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    BellIcon,
-    MenuIcon,
-    XIcon
-  },
+  name: "NavigationComponent",
+  components: {},
   setup() {
-    console.log("navigation" + navigation)
     return {
       navigation
     }

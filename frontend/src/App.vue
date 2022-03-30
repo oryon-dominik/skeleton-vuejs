@@ -1,13 +1,13 @@
 <template>
   <div class="w-screen h-screen max-h-screen overflow-hidden bg-fixed heropattern-eyes-red-100">
     <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
-      <div class="flex flex-col w-screen h-full gap-2 mx-auto max-h-fit max-w-fit">
+      <div class="flex flex-col justify-between w-screen h-full max-h-screen gap-1 px-4 mx-auto lg:w-9/12">
         <!-- setting the horizontal viewport resolution here -->
-        <header class="order-first w-full place-self-center lg:w-lg">
-          <Navigation />
+        <header class="order-first w-full place-self-center">
+          <HeaderComponent />
         </header>
 
-        <div class="flex-initial w-5/6 max-h-screen min-w-full mx-2 h-5/6 max-w-screen place-self-center">
+        <div class="flex-initial max-h-screen min-w-full mx-2 h-5/6 grow place-self-center">
           <RouterViewContent />
         </div>
 
@@ -32,8 +32,8 @@
 import { defineComponent } from "vue"
 
 // generic-components
-import Navigation from "./components/generics/Navigation.vue"
-import RouterViewContent from "./components/generics/RouterViewContent.vue"
+import HeaderComponent from "./components/generics/Header.vue"
+import RouterViewContent from "./components/generics/Content.vue"
 import FooterComponent from "./components/generics/Footer.vue"
 
 // examples
@@ -45,7 +45,7 @@ import TypoGraphy from "./components/examples/TypoGraphy.vue"
 export default defineComponent({
   name: "App",
   components: {
-    Navigation,
+    HeaderComponent,
     RouterViewContent,
     FooterComponent,
     // HeroIcons,

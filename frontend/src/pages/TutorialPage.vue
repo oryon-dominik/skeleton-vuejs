@@ -7,12 +7,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import TypeScriptTutorial from "../components/examples/TypeScriptTutorial.vue"
+// import TypeScriptTutorial from "../components/examples/TypeScriptTutorial.vue"
 
 export default defineComponent({
   name: "LoginPage",
   components: {
-    TypeScriptTutorial
+    // ! broken!
+    // TypeScriptTutorial
   }
 })
 </script>
