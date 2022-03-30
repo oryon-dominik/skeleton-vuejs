@@ -29,7 +29,7 @@
             </div>
           </div>
 
-          <div class="self-center">
+          <div class="self-center mr-2">
             <DarkModeSwitch />
           </div>
         </div>
@@ -67,7 +67,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <DisclosurePanel class="flex items-center justify-center">
+    <DisclosurePanel class="flex items-center justify-center lg:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <DisclosureButton>
           <div class="flex flex-col items-center justify-center space-y-2">

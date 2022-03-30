@@ -1,42 +1,8 @@
 <template>
-  <div class="flex items-center max-w-sm p-6 mx-auto space-x-4 bg-white shadow-lg rounded-xl">
+  <div class="flex">
     <div>
-      <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-red-500">You have a new messsage :)!</p>
+      <div class="text-xl font-medium text-black">Todos</div>
       <button @click="getTodos()">callAPI</button>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
-      <ul v-for="todo in todos">
-        <li>{{ todo.name }}: {{ todo.description }}</li>
-      </ul>
       <ul v-for="todo in todos">
         <li>{{ todo.name }}: {{ todo.description }}</li>
       </ul>

@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div class="bg-black">foo</div>
-    <!-- <h2 class="static" :class="{ active: isActive }">Login</h2> -->
-
-    <!-- <p v-if="error != null" class>{{ error }}</p> -->
-    <!-- <form @submit.prevent="authenticate()">
+    <p v-if="error != null" class>{{ error }}</p>
+    <form @submit.prevent="authenticate()">
       <fieldset class>
         <legend>Login</legend>
         <div class>
@@ -33,9 +30,9 @@
           <input type="submit" value="Jetzt anmelden" class data-testid="input-submit" />
         </div>
       </fieldset>
-    </form> -->
+    </form>
     <div class>
-      <!-- <a @click.prevent="passwordForgetClicked">Passwort vergessen ></a> -->
+      <a @click.prevent="passwordForgetClicked">Passwort vergessen ></a>
     </div>
   </div>
 </template>

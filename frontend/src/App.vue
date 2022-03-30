@@ -1,13 +1,13 @@
 <template>
   <div class="w-screen h-screen max-h-screen overflow-hidden bg-fixed heropattern-eyes-red-100">
     <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
+      <!-- setting the horizontal viewport resolution here -->
       <div class="flex flex-col justify-between w-screen h-full max-h-screen gap-1 px-4 mx-auto lg:w-9/12">
-        <!-- setting the horizontal viewport resolution here -->
         <header class="order-first w-full place-self-center">
           <HeaderComponent />
         </header>
 
-        <div class="flex-initial max-h-screen min-w-full mx-2 h-5/6 grow place-self-center">
+        <div class="flex-1 h-full max-h-full min-w-full mx-2 place-self-center">
           <RouterViewContent />
         </div>
 
