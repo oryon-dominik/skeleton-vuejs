@@ -1,7 +1,5 @@
 <template>
-  <div class="p-6 bg-red-400">
-    <Authenticate />
-  </div>
+  <Authenticate />
 </template>
 
 <script lang="ts">
