@@ -240,14 +240,14 @@ import { defineComponent, ref } from "vue"
 // import { useStore } from "vuex";
 // import { useRouter } from "vue-router";
 // import Authenticate from "../components/authentication/Authenticate.vue";
-// import Registration from "../components/authentication/Registration.vue";
+// import RegisterUser from "../components/authentication/RegisterUser.vue";
 // import ForgetPassword from "./../components/authentication/ForgetPassword.vue";
 
 export default defineComponent({
   name: "HomePage",
   components: {
     // Authenticate,
-    // Registration,
+    // RegisterUser,
     // ForgetPassword
   },
   setup() {
