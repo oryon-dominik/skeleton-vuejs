@@ -1,5 +1,6 @@
 <template>
   <div class="w-screen h-screen max-h-screen overflow-hidden bg-fixed heropattern-eyes-red-100">
+    
     <div class="w-screen h-screen bg-opacity-75 bg-cyberred">
       <!-- setting the horizontal viewport resolution here -->
       <div class="flex flex-col justify-between w-screen h-full max-h-screen gap-1 px-4 mx-auto lg:w-9/12">
@@ -29,6 +30,9 @@
 </template>
 
 <script setup lang="ts">
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+
 // generic-components
 import HeaderComponent from "./components/generics/Header.vue"
 import RouterViewContent from "./components/generics/Content.vue"

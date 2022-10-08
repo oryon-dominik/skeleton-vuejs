@@ -1,11 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-
   // https://www.typescriptlang.org/docs/handbook/compiler-options.html?
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "useDefineForClassFields": true,
     // "noImplicitAny": true,  // if true it's included in 'strict' already
@@ -21,7 +20,7 @@
     "esModuleInterop": true,
     "lib": [
       // https://www.typescriptlang.org/tsconfig/#lib
-      "esnext",
+      "ESNext",
       "DOM",
       "DOM.Iterable",
     ],
@@ -40,6 +39,8 @@
     //   "vite/client",
     //   "node",
     // ],
+    "isolatedModules": false,
+    "skipLibCheck": false,
   },
   "plugins": [
     "typescript-plugin-vue",
@@ -60,10 +61,5 @@
   "exclude": [
     "node_modules"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.vite-config.json"
-    }
-  ]
-
+  "references": [{ "path": "./tsconfig.vite.json" }]
 }

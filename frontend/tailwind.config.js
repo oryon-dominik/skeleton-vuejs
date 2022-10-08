@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 const heropatterns = require("tailwindcss-hero-patterns/src/patterns")
 const withAnimations = require("animated-tailwindcss")
 

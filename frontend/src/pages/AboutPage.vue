@@ -118,21 +118,14 @@ Cupcake ipsum dolor sit amet candy shortbread. Cookie pastry oat cake bear
   </p>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
-export default defineComponent({
-  name: "AboutPage",
-  components: {},
-  props: {
-    msg: {
-      type: String,
-      default: "About"
-    }
-  },
-  setup() {
-    return {}
-  }
+<script setup lang="ts">
+// defineProps<{ msg: string }>()
+interface Props {
+  msg?: string
+}
+const props = withDefaults(defineProps<Props>(), {
+  msg: "About"
 })
+
 </script>
 <style lang="scss" scoped></style>
