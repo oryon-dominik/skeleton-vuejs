@@ -18,24 +18,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
+<script setup lang="ts">
 const navigation = [
   { to: "/", name: "Home" },
   { to: "/about", name: "About" },
   { to: "/todos", name: "Todos" },
   { to: "/login", name: "Login" }
 ]
-
-export default defineComponent({
-  name: "NavigationComponent",
-  components: {},
-  setup() {
-    return {
-      navigation
-    }
-  }
-})
 </script>
 <style lang="scss" scoped></style>

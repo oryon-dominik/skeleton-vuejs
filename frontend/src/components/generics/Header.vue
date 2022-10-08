@@ -79,33 +79,14 @@
   </Disclosure>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from "vue"
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue"
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline"
+import { BellIcon, Bars4Icon, XMarkIcon } from "@heroicons/vue/24/outline"
 
 import DarkModeSwitch from "../examples/DarkModeSwitch.vue"
 import NavigationComponent from "./Navigation.vue"
 import LogoComponent from "./Logo.vue"
-
-export default defineComponent({
-  name: "HeaderComponent",
-  components: {
-    DarkModeSwitch,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    NavigationComponent,
-    LogoComponent,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    BellIcon,
-    MenuIcon,
-    XIcon
-  }
-})
 </script>
 <style lang="scss" scoped></style>

@@ -28,9 +28,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
+<script setup lang="ts">
 // generic-components
 import HeaderComponent from "./components/generics/Header.vue"
 import RouterViewContent from "./components/generics/Content.vue"
@@ -41,19 +39,6 @@ import FooterComponent from "./components/generics/Footer.vue"
 // import HeroPatterns from "./components/examples/HeroPatterns.vue"
 import TypoGraphy from "./components/examples/TypoGraphy.vue"
 // import TypeScriptTutorial from "./components/examples/TypeScriptTutorial.vue"
-
-export default defineComponent({
-  name: "App",
-  components: {
-    HeaderComponent,
-    RouterViewContent,
-    FooterComponent,
-    // HeroIcons,
-    // HeroPatterns,
-    TypoGraphy,
-    // TypeScriptTutorial
-  }
-})
 </script>
 
 <style lang="scss">

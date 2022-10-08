@@ -13,25 +13,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue"
+<script setup lang="ts">
+import { ref } from "vue"
 import { useTodos } from "../stores/todos"
 import type { Todo } from "../stores/todos"
 
-export default defineComponent({
-  name: "ToDoList",
-  components: {},
-  setup() {
-    const todos = ref([] as Todo[])
-    async function getTodos() {
-      const todoStore = useTodos()
-      await todoStore.getAllTodoItemsFromAPI()
-      todos.value = todoStore.todos
-    }
-    return {
-      getTodos,
-      todos
-    }
-  }
-})
+const todos = ref([] as Todo[])
+
+async function getTodos() {
+  const todoStore = useTodos()
+  await todoStore.getAllTodoItemsFromAPI()
+  todos.value = todoStore.todos
+}
 </script>

@@ -36,7 +36,7 @@
 <script lang="ts">
 import { ref, defineComponent, watch } from "vue"
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue"
-import { MoonIcon, SunIcon } from "@heroicons/vue/outline"
+import { MoonIcon, SunIcon } from "@heroicons/vue/24/outline"
 
 export default defineComponent({
   name: "DarkModeSwitch",

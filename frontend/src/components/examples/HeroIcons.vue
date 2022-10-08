@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { MoonIcon } from "@heroicons/vue/outline"
+import { MoonIcon } from "@heroicons/vue/24/outline"
 import { defineComponent } from "vue"
 export default defineComponent({
   name: "HeroIcons",
